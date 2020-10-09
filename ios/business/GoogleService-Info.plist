@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>236428377808-ajpsr27kfqiksdnpv61aoaj3b83skh6f.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.236428377808-ajpsr27kfqiksdnpv61aoaj3b83skh6f</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBnedLtFlBUB801jGlVnP4AhXxNMgHjkdY</string>
+	<key>GCM_SENDER_ID</key>
+	<string>236428377808</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.business</string>
+	<key>PROJECT_ID</key>
+	<string>woven-1e170</string>
+	<key>STORAGE_BUCKET</key>
+	<string>woven-1e170.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:236428377808:ios:1377f79699665bb40f28d5</string>
+	<key>DATABASE_URL</key>
+	<string>https://woven-1e170.firebaseio.com</string>
+</dict>
+</plist>
