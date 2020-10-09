@@ -5,12 +5,11 @@ let db = firestore();
 async function getPositions() {
   var finalList = [];
   await db
-    .collection('appliedJobs').where("businessID", "==", auth().currentUser.uid)
+    .collection('positions').where("businessID", "==", auth().currentUser.uid)
     .get()
     .then(snapshot => {
       snapshot.forEach((doc) => {
         let data = doc.data();
-        console.log(data);
         finalList.push(data);
     });
     });

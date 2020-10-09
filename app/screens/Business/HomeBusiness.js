@@ -1,15 +1,25 @@
 import React, {Component} from 'react';
-import {FlatList, View} from 'react-native';
-import getPositions from '../../data/firestore/jobStatus';
+import {FlatList, View, Text, Image} from 'react-native';
+import getPositions from '../../data/firestore/businessJobs';
 import {ListItem, Separator} from '../../components/List';
 import {Container} from '../../components/Container';
-import auth from '@react-native-firebase/auth';
+import assetsObject from '../../assets/assets';
 import {Button} from 'react-native-elements';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import EStyleSheet from 'react-native-extended-stylesheet';
 
+
 Icon.loadFont();
 class HomeBusiness extends Component {
+  constructor(props) {
+    super(props)
+    this.state = { count: 0 }
+
+    // this will fire every time AppliedJob receives navigation focus
+    this.props.navigation.addListener('willFocus', () => {
+      this.componentDidMount()
+    })
+  }
   static navigationOptions = ({navigation}) => ({
     headerRight: () => (
       <Button
@@ -30,18 +40,25 @@ class HomeBusiness extends Component {
   };
 
   state = {
-    positions: {},
+    positions: [],
+    empty: true,
   };
 
   async componentDidMount() {
     var positions = await getPositions();
     this.setState({
       positions: positions,
+      empty: true,
     });
+    if(positions.length > 0) {
+      this.setState({
+        empty:false,
+      });
+    }
   }
 
   render() {
-    if(true){
+    if(!this.state.empty){
         return (
           <Container>
             <View>
@@ -65,9 +82,10 @@ class HomeBusiness extends Component {
           </Container>
         );
       } else {
+        //TODO: unify all text in one place
         return (
           <Container>
-            <Text style={styles.textStyle}>You didn't applied to any job</Text>
+            <Text style={styles.textStyle}>You didn't add any job</Text>
             <Image
               source={assetsObject.emptyJob}
               style={styles.logo}
@@ -81,6 +99,17 @@ class HomeBusiness extends Component {
 const styles = EStyleSheet.create({
   text: {
     color: '$textColor',
+  },
+  textStyle: {
+    marginTop: 80,
+    textAlign: 'center',
+    fontWeight: 'bold',
+    fontSize: 18,
+  },
+  logo: {
+    width: 150,
+    height: 150,
+    alignSelf: 'center',
   },
 });
 export default HomeBusiness;
